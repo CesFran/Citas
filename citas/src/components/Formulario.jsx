@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Formulario = ({ setPacientes, pacientes, paciente }) => {
+const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
 
     const [nombre, setNombre] = useState("")
     const [correo, setCorreo] = useState("")
@@ -46,10 +46,20 @@ const Formulario = ({ setPacientes, pacientes, paciente }) => {
             correo,
             sintomas,
             fecha,
-            id: generarID()
         }
 
-        setPacientes([...pacientes, objetoPaciente])
+        if (paciente.id) { // Actualizar
+            objetoPaciente.id = paciente.id
+            console.log(objetoPaciente);
+            console.log(paciente);
+            const pacientesActualizados = pacientes.map(original => original.id === paciente.id ? objetoPaciente : original)
+            setPacientes(pacientesActualizados)
+            setPaciente({})
+        } else { // Agregar
+            objetoPaciente.id = generarID()
+            setPacientes([...pacientes, objetoPaciente])
+        }
+
         limpiarDatos()
     }
 
@@ -78,7 +88,7 @@ const Formulario = ({ setPacientes, pacientes, paciente }) => {
                 </div>
 
                 <div>
-                    <input type="submit" value="Agendar" className='mt-2 border-2 border-purple-800 bg-purple-600 rounded-lg p-2 text-white hover:bg-purple-700 hover:cursor-pointer w-full' />
+                    <input type="submit" value={paciente.id ? "Editar Paciente" : "Agregar Paciente"} className='mt-2 border-2 border-purple-800 bg-purple-600 rounded-lg p-2 text-white hover:bg-purple-700 hover:cursor-pointer w-full' />
                 </div>
             </form>
         </div>
