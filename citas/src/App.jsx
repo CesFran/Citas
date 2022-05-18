@@ -7,9 +7,17 @@ function App() {
   const [pacientes, setPacientes] = useState([])
   const [paciente, setPaciente] = useState({})
 
+  useEffect(() => {
+    const pacientesLocalStorage = localStorage.getItem("pacientes")
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("pacientes", JSON.stringify(pacientes))
+  }, [pacientes])
+
   const eliminarPaciente = (id) => {
     console.log("Eiminando paciente", id)
-    const pacientesActualizados = pacientes.filter(reemplazo = reemplazo.id !== id)
+    const pacientesActualizados = pacientes.filter(original => original.id !== id)
     setPacientes(pacientesActualizados);
   }
 
