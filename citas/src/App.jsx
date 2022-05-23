@@ -8,11 +8,11 @@ function App() {
   const [paciente, setPaciente] = useState({})
 
   useEffect(() => {
-    const pacientesLocalStorage = localStorage.getItem("pacientes")
-  }, [])
+    const pacientesLocalStorage = localStorage.getItem("pacientesLocalStorage")
+  }, [pacientes])
 
   useEffect(() => {
-    localStorage.setItem("pacientes", JSON.stringify(pacientes))
+    localStorage.setItem("pacientesLocalStorage", JSON.stringify(pacientes))
   }, [pacientes])
 
   const eliminarPaciente = (id) => {
@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="mt-[10%] mb-[10%]">
       <Cabecera />
       <div className="mt-12 md:flex gap-4">
         <Formulario
