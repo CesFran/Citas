@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <div className="mt-[10%] mb-[10%]">
+    <div className="mt-[5%] mb-[5%] ">
       <Cabecera />
       <div className="mt-12 md:flex gap-4">
         <Formulario

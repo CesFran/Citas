@@ -64,7 +64,7 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
     }
 
     return (
-        <div className='text-xl mr-4  ml-4 sm:ml-4 md:mr-0 sm:mr-4 bg-[#80ced7] rounded-xl lg:w-[40%] md:w-[50%] h-fit'>
+        <div className='text-xl mr-4  ml-4 sm:ml-4 md:mr-0 sm:mr-4 bg-[#80ced7] rounded-xl lg:w-[40%] md:w-[50%] h-fit border-[#003249] border-2 border-dashed'>
             <form action="" className='p-10' onSubmit={validarFormulario}>
                 {error && <p className='text-red-200 text-center m-0 mx-20 mb-4 py-1 bg-pink-800 underline rounded-3xl'>Se requiere llenar todos los campos.</p>}
                 <div className='mb-2'>
