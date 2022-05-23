@@ -9,7 +9,8 @@ function App() {
 
   useEffect(() => {
     const pacientesLocalStorage = localStorage.getItem("pacientesLocalStorage")
-  }, [pacientes])
+    console.log(pacientesLocalStorage);
+  }, [])
 
   useEffect(() => {
     localStorage.setItem("pacientesLocalStorage", JSON.stringify(pacientes))
