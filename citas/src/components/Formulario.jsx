@@ -6,9 +6,7 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
     const [correo, setCorreo] = useState("")
     const [sintomas, setSintomas] = useState("")
     const [fecha, setFecha] = useState("")
-
     const [error, setError] = useState(false)
-
 
     useEffect(() => {
         if (Object.keys(paciente).length > 0) {
