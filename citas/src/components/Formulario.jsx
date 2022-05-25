@@ -64,22 +64,24 @@ const Formulario = ({ setPacientes, pacientes, paciente, setPaciente }) => {
     }
 
     return (
-        <div className='text-xl mr-4  ml-4 sm:ml-4 md:mr-0 sm:mr-4 bg-[#80ced7] rounded-xl lg:w-[40%] md:w-[50%] h-fit border-[#003249] border-2 border-dashed'>
-            <form action="" className='p-10' onSubmit={validarFormulario}>
-                {error && <p className='text-red-200 text-center m-0 mx-20 mb-4 py-1 bg-pink-800 underline rounded-3xl'>Se requiere llenar todos los campos.</p>}
-                <div className='mb-2'>
-                    <label>Nombre Paciente:</label>
-                    <input id='Nombre' placeholder='Nombre/Apellidos' type="text" className='border-black border-[1px] block w-full rounded-md p-1' value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        <div className='text-xl mr-4 ml-4 sm:ml-4 md:mr-0 sm:mr-4 bg-[#80ced7] rounded-xl lg:w-[40%] md:w-[50%] h-fit border-[#003249] border-2 border-dashed'>
+            <h2 className='text-3xl text-center underline underline-offset-8 pt-[16px]'>Registro Paciente</h2>
+            <p className='text-xl px-10 mt-5 p-2'>Escribe los datos del <span className='font-bold text-[#003249]'>Paciente</span></p>
+            <form action="" className='p-10 pt-0 ' onSubmit={validarFormulario}>
+                {error && <p className='text-white text-center m-0 mx-4 mb-4 py-1 bg-[#003249] underline rounded-3xl'>Se requiere llenar todos los campos.</p>}
+                <div>
+                    <label className=''>Nombre Paciente:</label>
+                    <input id='Nombre' placeholder='Nombre/Apellidos' type="text" className='border-black border-[1px] block w-full rounded-md p-1 mt-1' value={nombre} onChange={(e) => setNombre(e.target.value)} />
                 </div>
 
                 <div className='mt-2'>
                     <label>Correo:</label>
-                    <input id='Correo' placeholder='correo@gmail.com' type="text" className='border-black border-[1px] block w-full rounded-md p-1' value={correo} onChange={(e) => setCorreo(e.target.value)} />
+                    <input id='Correo' placeholder='correo@gmail.com' type="email" className='border-black border-[1px] block w-full rounded-md p-1' value={correo} onChange={(e) => setCorreo(e.target.value)} />
                 </div>
 
                 <div className='mt-2'>
                     <label className='mr-10'>Síntomas:</label>
-                    <textarea id='Sintomas' placeholder='Escribir los sintomas generales.' cols="30" rows="3" className='border-black border-[1px] p-1 block w-full rounded-md' value={sintomas} onChange={(e) => setSintomas(e.target.value)}></textarea>
+                    <textarea id='Sintomas' placeholder='Escribir los síntomas generales.' cols="30" rows="3" className='border-black border-[1px] p-1 block w-full rounded-md' value={sintomas} onChange={(e) => setSintomas(e.target.value)}></textarea>
                 </div>
 
                 <div className='mt-2'>
